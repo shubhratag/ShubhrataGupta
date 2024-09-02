@@ -65,7 +65,7 @@
 							</article>
 
 						<!-- Posts -->
-							<section class="posts" id="page-1">
+							<section class="posts">
 								<article>
 									<header>
 									
@@ -126,9 +126,6 @@
 										<li><a href="https://github.com/shubhratag/Data-Analysis-Projects/blob/main/MovieAnalyzingAndRecommendationSystem.zip" class="button">View Project</a></li>
 									</ul>
 								</article>
-							</section>
-
-							<section class="posts" id="page-2" style="display:none;"></section>
 								<article>
 									<header>
 									
@@ -193,20 +190,19 @@
 							</section>
 
 						<!-- Footer -->
-							
 							<footer>
 								<div class="pagination">
-									<a href="#" class="previous" onclick="changePage(-1)">Prev</a>
-									<a href="#" class="page active" onclick="showPage(1)">1</a>
-									<a href="#" class="page" onclick="showPage(2)">2</a>
-									<a href="#" class="page" onclick="showPage(3)">3</a>
+									<!--<a href="#" class="previous">Prev</a>-->
+									<a href="#" class="page active">1</a>
+									<a href="#" class="page">2</a>
+									<a href="#" class="page">3</a>
 									<span class="extra">&hellip;</span>
-									<a href="#" class="page" onclick="showPage(4)">4</a>
-									<a href="#" class="page" onclick="showPage(5)">5</a>
-									<a href="#" class="next" onclick="changePage(1)">Next</a>
+									<a href="#" class="page">8</a>
+									<a href="#" class="page">9</a>
+									<a href="#" class="page">10</a>
+									<a href="#" class="next">Next</a>
 								</div>
 							</footer>
-							
 
 					</div>
 
@@ -254,40 +250,6 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
-
-			<script>
-				let currentPage = 1;
-			
-				function showPage(pageNumber) {
-					const totalPages = document.querySelectorAll('.posts').length;
-					if (pageNumber < 1 || pageNumber > totalPages) return;
-			
-					document.querySelectorAll('.posts').forEach((section, index) => {
-						section.style.display = index + 1 === pageNumber ? 'block' : 'none';
-					});
-			
-					currentPage = pageNumber;
-					updatePaginationControls(totalPages);
-				}
-			
-				function changePage(direction) {
-					const totalPages = document.querySelectorAll('.posts').length;
-					const newPage = currentPage + direction;
-					if (newPage < 1 || newPage > totalPages) return;
-					showPage(newPage);
-				}
-			
-				function updatePaginationControls(totalPages) {
-					document.querySelectorAll('.pagination .page').forEach((link, index) => {
-						link.classList.toggle('active', index + 1 === currentPage);
-					});
-					document.querySelector('.pagination .previous').style.display = currentPage === 1 ? 'none' : 'inline';
-					document.querySelector('.pagination .next').style.display = currentPage === totalPages ? 'none' : 'inline';
-				}
-			
-				document.addEventListener('DOMContentLoaded', () => showPage(currentPage));
-			</script>
-			
 
 	</body>
 </html>
