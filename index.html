@@ -969,6 +969,18 @@ function toggleProjects() {
   </div>
 </section>
 
+<a href="#home" id="back-to-top"
+  style="position:fixed;bottom:2rem;right:2rem;
+  width:44px;height:44px;border-radius:50%;
+  background:rgba(124,106,255,.15);
+  border:1px solid rgba(124,106,255,.3);
+  color:var(--p1);text-decoration:none;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.2rem;z-index:200;
+  transition:all .2s;opacity:0;pointer-events:none;">
+  ↑
+</a>
+  
 <!-- FOOTER -->
 <footer>
   <div class="footer-copy">© 2026 Shubhrata Gupta · Built with HTML / CSS / JS</div>
@@ -979,6 +991,17 @@ function toggleProjects() {
 </footer>
 
 <script>
+  <script>
+const backBtn=document.getElementById('back-to-top');
+window.addEventListener('scroll',()=>{
+  if(window.scrollY>500){
+    backBtn.style.opacity='1';
+    backBtn.style.pointerEvents='auto';
+  } else {
+    backBtn.style.opacity='0';
+    backBtn.style.pointerEvents='none';
+  }
+});
 const obs=new IntersectionObserver(entries=>{
   entries.forEach((e,i)=>{
     if(e.isIntersecting){
