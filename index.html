@@ -991,17 +991,20 @@ function toggleProjects() {
 </footer>
 
 <script>
-  <script>
-const backBtn=document.getElementById('back-to-top');
+<script>
 window.addEventListener('scroll',()=>{
-  if(window.scrollY>500){
-    backBtn.style.opacity='1';
-    backBtn.style.pointerEvents='auto';
-  } else {
-    backBtn.style.opacity='0';
-    backBtn.style.pointerEvents='none';
+  const backBtn=document.getElementById('back-to-top');
+  if(backBtn){
+    if(window.scrollY>500){
+      backBtn.style.opacity='1';
+      backBtn.style.pointerEvents='auto';
+    } else {
+      backBtn.style.opacity='0';
+      backBtn.style.pointerEvents='none';
+    }
   }
 });
+
 const obs=new IntersectionObserver(entries=>{
   entries.forEach((e,i)=>{
     if(e.isIntersecting){
@@ -1014,7 +1017,6 @@ document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 
 const sections=document.querySelectorAll('section.sec, section.hero');
 const navLinks=document.querySelectorAll('.nav-links a');
-
 const navObs=new IntersectionObserver(entries=>{
   entries.forEach(entry=>{
     if(entry.isIntersecting){
@@ -1028,7 +1030,6 @@ const navObs=new IntersectionObserver(entries=>{
     }
   });
 },{threshold:.3});
-
 sections.forEach(sec=>navObs.observe(sec));
 </script>
 </body>
