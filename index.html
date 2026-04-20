@@ -935,6 +935,7 @@ function toggleProjects() {
   </div>
 
 </div>
+</section>
 
 <!-- CONTACT -->
 <section class="sec" id="contact">
@@ -990,7 +991,18 @@ function toggleProjects() {
   </div>
 </footer>
 
-<script>
+<a href="#home" id="back-to-top"
+  style="position:fixed;bottom:2rem;right:2rem;
+  width:44px;height:44px;border-radius:50%;
+  background:rgba(124,106,255,.15);
+  border:1px solid rgba(124,106,255,.3);
+  color:var(--p1);text-decoration:none;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.2rem;z-index:200;
+  transition:all .2s;opacity:0;pointer-events:none;">
+  ↑
+</a>
+
 <script>
 window.addEventListener('scroll',()=>{
   const backBtn=document.getElementById('back-to-top');
@@ -1004,6 +1016,18 @@ window.addEventListener('scroll',()=>{
     }
   }
 });
+
+function toggleProjects(){
+  const more=document.getElementById('more-projects');
+  const btn=document.getElementById('show-more-btn');
+  if(more.style.display==='none'){
+    more.style.display='block';
+    btn.textContent='Show less ↑';
+  } else {
+    more.style.display='none';
+    btn.textContent='Show all 14 projects ↓';
+  }
+}
 
 const obs=new IntersectionObserver(entries=>{
   entries.forEach((e,i)=>{
