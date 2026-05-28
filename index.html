@@ -689,6 +689,226 @@ footer{
     <div class="proj-arrow">↗</div>
   </a>
 
+  <!-- Equity Radar — Live Terminal Preview -->
+  <div id="er-preview" style="background:#06060a;border:1px solid rgba(124,106,255,.18);border-top:none;padding:0;overflow:hidden">
+    <!-- Terminal chrome bar -->
+    <div style="background:#0d0d18;border-bottom:1px solid rgba(124,106,255,.15);padding:.55rem 1.1rem;display:flex;align-items:center;justify-content:space-between">
+      <div style="display:flex;align-items:center;gap:.55rem">
+        <span style="width:10px;height:10px;background:#ff5f57;border-radius:50%;display:inline-block"></span>
+        <span style="width:10px;height:10px;background:#ffbd2e;border-radius:50%;display:inline-block"></span>
+        <span style="width:10px;height:10px;background:#28c840;border-radius:50%;display:inline-block"></span>
+        <span style="font-family:var(--mono);font-size:.65rem;color:rgba(255,255,255,.25);margin-left:.6rem;letter-spacing:.06em">equity-radar · localhost:5173</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:1.2rem">
+        <span style="font-family:var(--mono);font-size:.6rem;color:#6affc5;letter-spacing:.1em">● LIVE</span>
+        <span style="font-family:var(--mono);font-size:.6rem;color:rgba(255,255,255,.3);letter-spacing:.08em">REFRESH IN 04:52</span>
+      </div>
+    </div>
+    <!-- Ticker tape -->
+    <div style="background:#080814;border-bottom:1px solid rgba(124,106,255,.1);padding:.32rem 0;overflow:hidden;position:relative">
+      <div id="er-tape" style="display:flex;gap:2.5rem;width:max-content;animation:erTape 18s linear infinite">
+        <span style="font-family:var(--mono);font-size:.63rem;white-space:nowrap;color:#6affc5">NVDA <strong>+2.14%</strong></span>
+        <span style="font-family:var(--mono);font-size:.63rem;white-space:nowrap;color:#ff6b6b">META <strong>-0.83%</strong></span>
+        <span style="font-family:var(--mono);font-size:.63rem;white-space:nowrap;color:#6affc5">AAPL <strong>+1.02%</strong></span>
+        <span style="font-family:var(--mono);font-size:.63rem;white-space:nowrap;color:#6affc5">MSFT <strong>+0.67%</strong></span>
+        <span style="font-family:var(--mono);font-size:.63rem;white-space:nowrap;color:#ff6b6b">TSLA <strong>-1.45%</strong></span>
+        <span style="font-family:var(--mono);font-size:.63rem;white-space:nowrap;color:#6affc5">AMZN <strong>+0.91%</strong></span>
+        <span style="font-family:var(--mono);font-size:.63rem;white-space:nowrap;color:#ff6b6b">GOOG <strong>-0.29%</strong></span>
+        <span style="font-family:var(--mono);font-size:.63rem;white-space:nowrap;color:#6affc5">AMD <strong>+3.22%</strong></span>
+        <span style="font-family:var(--mono);font-size:.63rem;white-space:nowrap;color:#6affc5">PLTR <strong>+4.11%</strong></span>
+        <span style="font-family:var(--mono);font-size:.63rem;white-space:nowrap;color:#ff6b6b">INTC <strong>-2.07%</strong></span>
+        <span style="font-family:var(--mono);font-size:.63rem;white-space:nowrap;color:#6affc5">SPY <strong>+0.44%</strong></span>
+        <span style="font-family:var(--mono);font-size:.63rem;white-space:nowrap;color:#ffd666">VIX <strong>17.3</strong></span>
+        <!-- duplicate for seamless loop -->
+        <span style="font-family:var(--mono);font-size:.63rem;white-space:nowrap;color:#6affc5">NVDA <strong>+2.14%</strong></span>
+        <span style="font-family:var(--mono);font-size:.63rem;white-space:nowrap;color:#ff6b6b">META <strong>-0.83%</strong></span>
+        <span style="font-family:var(--mono);font-size:.63rem;white-space:nowrap;color:#6affc5">AAPL <strong>+1.02%</strong></span>
+        <span style="font-family:var(--mono);font-size:.63rem;white-space:nowrap;color:#6affc5">MSFT <strong>+0.67%</strong></span>
+        <span style="font-family:var(--mono);font-size:.63rem;white-space:nowrap;color:#ff6b6b">TSLA <strong>-1.45%</strong></span>
+        <span style="font-family:var(--mono);font-size:.63rem;white-space:nowrap;color:#6affc5">AMZN <strong>+0.91%</strong></span>
+        <span style="font-family:var(--mono);font-size:.63rem;white-space:nowrap;color:#6affc5">AMD <strong>+3.22%</strong></span>
+        <span style="font-family:var(--mono);font-size:.63rem;white-space:nowrap;color:#6affc5">PLTR <strong>+4.11%</strong></span>
+        <span style="font-family:var(--mono);font-size:.63rem;white-space:nowrap;color:#ffd666">VIX <strong>17.3</strong></span>
+      </div>
+    </div>
+    <!-- Main content area -->
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;border-bottom:1px solid rgba(124,106,255,.1)">
+      <!-- Stock cards col -->
+      <div style="padding:.9rem;border-right:1px solid rgba(124,106,255,.1)">
+        <div style="font-family:var(--mono);font-size:.55rem;color:rgba(124,106,255,.7);letter-spacing:.12em;text-transform:uppercase;margin-bottom:.65rem">Top Movers</div>
+        <!-- NVDA card -->
+        <div style="background:#0d0d1a;border:1px solid rgba(106,255,197,.18);border-radius:6px;padding:.6rem .75rem;margin-bottom:.5rem">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.25rem">
+            <span style="font-family:var(--mono);font-size:.72rem;color:#fff;font-weight:600">NVDA</span>
+            <span style="font-family:var(--mono);font-size:.68rem;color:#6affc5">+2.14%</span>
+          </div>
+          <div style="font-size:.72rem;color:rgba(255,255,255,.85);margin-bottom:.3rem">$876.40</div>
+          <div style="font-size:.62rem;color:rgba(106,255,197,.75);line-height:1.4">↑ Blackwell GPU demand surge · data-center beat</div>
+          <div style="display:flex;gap:.35rem;margin-top:.4rem">
+            <span style="font-family:var(--mono);font-size:.52rem;padding:.12rem .45rem;background:rgba(106,255,197,.12);border:1px solid rgba(106,255,197,.25);border-radius:100px;color:#6affc5">BUY</span>
+            <span style="font-family:var(--mono);font-size:.52rem;color:rgba(255,255,255,.3)">conf 87%</span>
+          </div>
+        </div>
+        <!-- PLTR card -->
+        <div style="background:#0d0d1a;border:1px solid rgba(106,255,197,.13);border-radius:6px;padding:.6rem .75rem;margin-bottom:.5rem">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.25rem">
+            <span style="font-family:var(--mono);font-size:.72rem;color:#fff;font-weight:600">PLTR</span>
+            <span style="font-family:var(--mono);font-size:.68rem;color:#6affc5">+4.11%</span>
+          </div>
+          <div style="font-size:.72rem;color:rgba(255,255,255,.85);margin-bottom:.3rem">$24.18</div>
+          <div style="font-size:.62rem;color:rgba(106,255,197,.75);line-height:1.4">↑ DoD AIP contract expansion confirmed</div>
+          <div style="display:flex;gap:.35rem;margin-top:.4rem">
+            <span style="font-family:var(--mono);font-size:.52rem;padding:.12rem .45rem;background:rgba(106,255,197,.12);border:1px solid rgba(106,255,197,.25);border-radius:100px;color:#6affc5">BUY</span>
+            <span style="font-family:var(--mono);font-size:.52rem;color:rgba(255,255,255,.3)">conf 79%</span>
+          </div>
+        </div>
+        <!-- TSLA card bearish -->
+        <div style="background:#0d0d1a;border:1px solid rgba(255,107,107,.13);border-radius:6px;padding:.6rem .75rem">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.25rem">
+            <span style="font-family:var(--mono);font-size:.72rem;color:#fff;font-weight:600">TSLA</span>
+            <span style="font-family:var(--mono);font-size:.68rem;color:#ff6b6b">-1.45%</span>
+          </div>
+          <div style="font-size:.72rem;color:rgba(255,255,255,.85);margin-bottom:.3rem">$172.63</div>
+          <div style="font-size:.62rem;color:rgba(255,107,107,.75);line-height:1.4">↓ Delivery miss · price cut margins concern</div>
+          <div style="display:flex;gap:.35rem;margin-top:.4rem">
+            <span style="font-family:var(--mono);font-size:.52rem;padding:.12rem .45rem;background:rgba(255,107,107,.12);border:1px solid rgba(255,107,107,.25);border-radius:100px;color:#ff6b6b">AVOID</span>
+            <span style="font-family:var(--mono);font-size:.52rem;color:rgba(255,255,255,.3)">conf 72%</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sector heatmap + risk gauge col -->
+      <div style="padding:.9rem;border-right:1px solid rgba(124,106,255,.1)">
+        <div style="font-family:var(--mono);font-size:.55rem;color:rgba(124,106,255,.7);letter-spacing:.12em;text-transform:uppercase;margin-bottom:.65rem">Sector Heat Map</div>
+        <div style="display:flex;flex-direction:column;gap:.3rem;margin-bottom:1rem">
+          <div style="display:flex;align-items:center;gap:.5rem">
+            <span style="font-family:var(--mono);font-size:.6rem;color:rgba(255,255,255,.5);width:80px;flex-shrink:0">Technology</span>
+            <div style="flex:1;height:16px;background:linear-gradient(90deg,rgba(106,255,197,.35),rgba(106,255,197,.15));border-radius:3px;position:relative;overflow:hidden">
+              <div style="position:absolute;left:0;top:0;bottom:0;width:72%;background:rgba(106,255,197,.4);border-radius:3px"></div>
+            </div>
+            <span style="font-family:var(--mono);font-size:.6rem;color:#6affc5;width:38px;text-align:right">+1.84%</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:.5rem">
+            <span style="font-family:var(--mono);font-size:.6rem;color:rgba(255,255,255,.5);width:80px;flex-shrink:0">Healthcare</span>
+            <div style="flex:1;height:16px;background:rgba(255,255,255,.04);border-radius:3px;position:relative">
+              <div style="position:absolute;left:0;top:0;bottom:0;width:42%;background:rgba(106,255,197,.25);border-radius:3px"></div>
+            </div>
+            <span style="font-family:var(--mono);font-size:.6rem;color:#6affc5;width:38px;text-align:right">+0.61%</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:.5rem">
+            <span style="font-family:var(--mono);font-size:.6rem;color:rgba(255,255,255,.5);width:80px;flex-shrink:0">Energy</span>
+            <div style="flex:1;height:16px;background:rgba(255,255,255,.04);border-radius:3px;position:relative">
+              <div style="position:absolute;right:0;top:0;bottom:0;width:35%;background:rgba(255,107,107,.3);border-radius:3px"></div>
+            </div>
+            <span style="font-family:var(--mono);font-size:.6rem;color:#ff6b6b;width:38px;text-align:right">-0.93%</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:.5rem">
+            <span style="font-family:var(--mono);font-size:.6rem;color:rgba(255,255,255,.5);width:80px;flex-shrink:0">Financials</span>
+            <div style="flex:1;height:16px;background:rgba(255,255,255,.04);border-radius:3px;position:relative">
+              <div style="position:absolute;left:0;top:0;bottom:0;width:55%;background:rgba(106,255,197,.3);border-radius:3px"></div>
+            </div>
+            <span style="font-family:var(--mono);font-size:.6rem;color:#6affc5;width:38px;text-align:right">+1.02%</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:.5rem">
+            <span style="font-family:var(--mono);font-size:.6rem;color:rgba(255,255,255,.5);width:80px;flex-shrink:0">Consumer</span>
+            <div style="flex:1;height:16px;background:rgba(255,255,255,.04);border-radius:3px;position:relative">
+              <div style="position:absolute;right:0;top:0;bottom:0;width:20%;background:rgba(255,107,107,.25);border-radius:3px"></div>
+            </div>
+            <span style="font-family:var(--mono);font-size:.6rem;color:#ff6b6b;width:38px;text-align:right">-0.28%</span>
+          </div>
+        </div>
+        <!-- SVG Risk Gauge -->
+        <div style="font-family:var(--mono);font-size:.55rem;color:rgba(124,106,255,.7);letter-spacing:.12em;text-transform:uppercase;margin-bottom:.5rem">Market Risk Gauge</div>
+        <div style="display:flex;align-items:center;justify-content:center">
+          <svg viewBox="0 0 120 70" width="150" height="88">
+            <defs>
+              <linearGradient id="gaugeg" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#6affc5"/>
+                <stop offset="50%" stop-color="#ffd666"/>
+                <stop offset="100%" stop-color="#ff6b6b"/>
+              </linearGradient>
+            </defs>
+            <path d="M10 65 A50 50 0 0 1 110 65" fill="none" stroke="rgba(255,255,255,.08)" stroke-width="8" stroke-linecap="round"/>
+            <path d="M10 65 A50 50 0 0 1 110 65" fill="none" stroke="url(#gaugeg)" stroke-width="8" stroke-linecap="round" stroke-dasharray="157" stroke-dashoffset="50" opacity=".85"/>
+            <!-- needle -->
+            <line x1="60" y1="65" x2="82" y2="28" stroke="#ffd666" stroke-width="1.8" stroke-linecap="round"/>
+            <circle cx="60" cy="65" r="4" fill="#0d0d1a" stroke="#ffd666" stroke-width="1.5"/>
+            <text x="60" y="57" text-anchor="middle" font-family="monospace" font-size="7" fill="rgba(255,255,255,.45)">MODERATE</text>
+            <text x="10" y="75" font-family="monospace" font-size="6" fill="rgba(106,255,197,.6)">LOW</text>
+            <text x="95" y="75" font-family="monospace" font-size="6" fill="rgba(255,107,107,.6)">HIGH</text>
+          </svg>
+        </div>
+        <!-- Breadth bar -->
+        <div style="font-family:var(--mono);font-size:.55rem;color:rgba(124,106,255,.7);letter-spacing:.12em;text-transform:uppercase;margin-bottom:.35rem;margin-top:.4rem">Bull / Bear Breadth</div>
+        <div style="display:flex;border-radius:4px;overflow:hidden;height:14px">
+          <div style="flex:63;background:rgba(106,255,197,.4);display:flex;align-items:center;justify-content:center">
+            <span style="font-family:var(--mono);font-size:.55rem;color:#6affc5">63%</span>
+          </div>
+          <div style="flex:12;background:rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center">
+            <span style="font-family:var(--mono);font-size:.5rem;color:rgba(255,255,255,.4)">12</span>
+          </div>
+          <div style="flex:25;background:rgba(255,107,107,.35);display:flex;align-items:center;justify-content:center">
+            <span style="font-family:var(--mono);font-size:.55rem;color:#ff6b6b">25%</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ask the Market panel col -->
+      <div style="padding:.9rem;display:flex;flex-direction:column">
+        <div style="display:flex;align-items:center;gap:.5rem;margin-bottom:.65rem">
+          <span style="font-family:var(--mono);font-size:.55rem;color:rgba(124,106,255,.7);letter-spacing:.12em;text-transform:uppercase">Ask the Market</span>
+          <span style="font-family:var(--mono);font-size:.5rem;padding:.1rem .4rem;background:rgba(124,106,255,.15);border:1px solid rgba(124,106,255,.3);border-radius:100px;color:var(--p1)">Claude AI</span>
+        </div>
+        <!-- Chat message: user -->
+        <div style="background:rgba(124,106,255,.1);border:1px solid rgba(124,106,255,.18);border-radius:8px 8px 2px 8px;padding:.55rem .7rem;margin-bottom:.4rem;font-size:.68rem;color:rgba(255,255,255,.8);align-self:flex-end;max-width:90%">
+          Should I buy NVDA at $876?
+        </div>
+        <!-- Chat message: AI response -->
+        <div style="background:#0d0d1a;border:1px solid rgba(106,255,197,.2);border-radius:2px 8px 8px 8px;padding:.65rem .75rem;margin-bottom:.4rem;flex:1">
+          <div style="display:flex;align-items:center;gap:.45rem;margin-bottom:.45rem">
+            <span style="font-family:var(--mono);font-size:.62rem;padding:.15rem .5rem;background:rgba(106,255,197,.15);border:1px solid rgba(106,255,197,.35);border-radius:100px;color:#6affc5;font-weight:600">BUY</span>
+            <span style="font-family:var(--mono);font-size:.58rem;color:rgba(255,255,255,.4)">Confidence 87%</span>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:.3rem;margin-bottom:.5rem">
+            <div style="background:rgba(255,255,255,.04);border-radius:4px;padding:.3rem .4rem;text-align:center">
+              <div style="font-family:var(--mono);font-size:.5rem;color:rgba(255,255,255,.35);margin-bottom:.15rem">ENTRY</div>
+              <div style="font-family:var(--mono);font-size:.62rem;color:#6affc5">$870–882</div>
+            </div>
+            <div style="background:rgba(255,255,255,.04);border-radius:4px;padding:.3rem .4rem;text-align:center">
+              <div style="font-family:var(--mono);font-size:.5rem;color:rgba(255,255,255,.35);margin-bottom:.15rem">STOP</div>
+              <div style="font-family:var(--mono);font-size:.62rem;color:#ff6b6b">$845</div>
+            </div>
+            <div style="background:rgba(255,255,255,.04);border-radius:4px;padding:.3rem .4rem;text-align:center">
+              <div style="font-family:var(--mono);font-size:.5rem;color:rgba(255,255,255,.35);margin-bottom:.15rem">TARGET</div>
+              <div style="font-family:var(--mono);font-size:.62rem;color:#6affc5">$920</div>
+            </div>
+          </div>
+          <div style="font-size:.62rem;color:rgba(255,255,255,.5);line-height:1.5">Blackwell ramp + data-center tailwind. Momentum intact above 50-day MA. R:R favors entry on current dip.</div>
+        </div>
+        <!-- Input bar -->
+        <div style="display:flex;gap:.4rem;margin-top:auto">
+          <div style="flex:1;background:#080814;border:1px solid rgba(124,106,255,.2);border-radius:6px;padding:.4rem .65rem;font-family:var(--mono);font-size:.6rem;color:rgba(255,255,255,.3)">
+            e.g. LUNR target? · will it go to 5?
+          </div>
+          <div style="background:rgba(124,106,255,.25);border:1px solid rgba(124,106,255,.4);border-radius:6px;padding:.4rem .7rem;font-family:var(--mono);font-size:.6rem;color:var(--p1);cursor:pointer">Ask ↵</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom spotlight bar -->
+    <div style="padding:.6rem 1.1rem;background:#080814;display:flex;align-items:center;gap:1.5rem">
+      <span style="font-family:var(--mono);font-size:.58rem;color:rgba(255,213,102,.8);letter-spacing:.08em">⚡ TOP CONVICTION SETUP</span>
+      <span style="font-family:var(--mono);font-size:.65rem;color:#fff;font-weight:600">PLTR</span>
+      <span style="font-family:var(--mono);font-size:.62rem;color:#6affc5">+4.11%</span>
+      <span style="font-size:.62rem;color:rgba(255,255,255,.35);flex:1">DoD contract expansion · highest confidence × momentum score this session</span>
+      <span style="font-family:var(--mono);font-size:.55rem;padding:.15rem .6rem;background:rgba(106,255,197,.1);border:1px solid rgba(106,255,197,.2);border-radius:100px;color:#6affc5">conf 79%</span>
+    </div>
+
+    <style>
+      @keyframes erTape{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+    </style>
+  </div>
+
   <!-- Equity Radar — How it's built (expandable case study) -->
   <div style="background:rgba(124,106,255,.03);border:1px solid rgba(124,106,255,.12);border-top:none;padding:0">
     <button onclick="togglePremarketCase()" id="premarket-case-btn"
