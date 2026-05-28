@@ -674,7 +674,7 @@ footer{
     <div>
       <div class="proj-num">05 · Featured <span class="badge-new">New</span></div>
       <div class="proj-name">Equity Radar</div>
-      <div class="proj-desc">Bloomberg-style market intelligence terminal covering 120+ tickers across all sessions (pre-market, live, post-market). AI agent architecture with structured prompt engineering extracts directional bias scores, driver narratives, and key levels for every ticker. Features a scrolling ticker tape, sector heat map, SVG risk gauge, auto-refresh countdown, portfolio P&amp;L tracker with localStorage persistence, interactive pie-chart portfolio builder, and a sentiment-tagged news feed.</div>
+      <div class="proj-desc">Bloomberg-style market intelligence terminal covering 120+ tickers across all sessions (pre-market, live, post-market). AI agent architecture with structured prompt engineering extracts directional bias scores, driver narratives, and key levels for every ticker. Features a scrolling ticker tape, sector heat map, SVG risk gauge, auto-refresh countdown, portfolio P&amp;L tracker with localStorage persistence, interactive pie-chart portfolio builder, and a sentiment-tagged news feed. Includes an <strong>Ask the Market</strong> AI chat panel — type any question like "Should I buy NVDA at $132?" and get a BUY / WAIT / AVOID verdict with entry, stop-loss, and take-profit levels, powered by Claude claude-sonnet-4-6 with live web search.</div>
       <div class="proj-tags">
         <span class="proj-tag">AI Agent</span>
         <span class="proj-tag">Financial Analytics</span>
@@ -715,8 +715,13 @@ footer{
           </p>
 
           <div style="font-family:var(--mono);font-size:.62rem;color:var(--p1);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.6rem">AI Agent Design</div>
-          <p style="font-size:.88rem;color:var(--muted);line-height:1.8">
+          <p style="font-size:.88rem;color:var(--muted);line-height:1.8;margin-bottom:1.2rem">
             The terminal is designed as an <strong style="color:var(--text)">observation-action loop</strong> — the core pattern behind AI agents. Each refresh cycle the agent (1) <em style="color:var(--text)">observes</em> the market via yfinance, (2) <em style="color:var(--text)">scores</em> each ticker against a bias policy (a rule set equivalent to a system prompt), (3) <em style="color:var(--text)">ranks</em> opportunities by a weighted scoring function, and (4) <em style="color:var(--text)">surfaces</em> the best signal — exactly what a human analyst would do. The auto-refresh timer closes the loop autonomously.
+          </p>
+
+          <div style="font-family:var(--mono);font-size:.62rem;color:var(--p1);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.6rem">Ask the Market — Conversational AI Layer</div>
+          <p style="font-size:.88rem;color:var(--muted);line-height:1.8">
+            A fixed chat panel invokes <strong style="color:var(--text)">Claude claude-sonnet-4-6 with the <code style="font-family:var(--mono);font-size:.78rem;background:rgba(255,255,255,.05);padding:.1rem .4rem;border-radius:4px">web_search</code> tool</strong> to answer free-text questions about any stock and return a structured JSON verdict — BUY / WAIT / AVOID, confidence score, entry/stop/target levels, and a plain-English explanation. A rule-based fallback runs without an API key so the panel is always functional. The hardest engineering problem was <strong style="color:var(--text)">intent parsing</strong>: a 4-step priority chain distinguishes an intentional ticker ("LUNR") from identical-looking English ("now", "be", "go") using original-case scanning, a curated STOPWORDS set, an AMBIGUOUS set for tickers that double as common words (NOW, AI, NET), and a price-mismatch guard that catches ticker mis-detections when the fetched price is 10× off from a price the user mentioned. News relevance is enforced with word-boundary regex so "NOW" never matches inside "Snowflake".
           </p>
         </div>
 
@@ -744,6 +749,8 @@ footer{
             <span style="font-family:var(--mono);font-size:.62rem;padding:.22rem .65rem;background:rgba(124,106,255,.1);border:1px solid rgba(124,106,255,.2);border-radius:100px;color:rgba(200,190,255,.8)">SVG Animation</span>
             <span style="font-family:var(--mono);font-size:.62rem;padding:.22rem .65rem;background:rgba(124,106,255,.1);border:1px solid rgba(124,106,255,.2);border-radius:100px;color:rgba(200,190,255,.8)">localStorage Persistence</span>
             <span style="font-family:var(--mono);font-size:.62rem;padding:.22rem .65rem;background:rgba(124,106,255,.1);border:1px solid rgba(124,106,255,.2);border-radius:100px;color:rgba(200,190,255,.8)">REST API Design</span>
+            <span style="font-family:var(--mono);font-size:.62rem;padding:.22rem .65rem;background:rgba(124,106,255,.1);border:1px solid rgba(124,106,255,.2);border-radius:100px;color:rgba(200,190,255,.8)">Claude API + Tool Use</span>
+            <span style="font-family:var(--mono);font-size:.62rem;padding:.22rem .65rem;background:rgba(124,106,255,.1);border:1px solid rgba(124,106,255,.2);border-radius:100px;color:rgba(200,190,255,.8)">Intent Parsing / NLP</span>
           </div>
         </div>
 
